@@ -21,7 +21,7 @@ import sys
 import os
 
 # Arquivos permitidos dentro de uma pasta de assignment
-ALLOWED_FILENAMES = {"README.md", "starter-code.py", "data.csv"}
+ALLOWED_FILENAMES = {"README.md", "starter-code.py", "api.py", "data.csv"}
 
 # Prefixo que identifica pastas de assignments
 ASSIGNMENTS_PREFIX = "assignments/"
@@ -111,13 +111,15 @@ def validate(payload: dict) -> dict:
 
     filename = os.path.basename(file_path)
 
-    if filename not in ALLOWED_FILENAMES:
+    is_test_file = filename.startswith("test_") and filename.endswith(".py")
+    if filename not in ALLOWED_FILENAMES and not is_test_file:
         return build_decision(
             "deny",
             (
                 f"Arquivo bloqueado: '{filename}' não é um arquivo permitido "
                 f"em assignments/. "
-                f"Arquivos esperados: {', '.join(sorted(ALLOWED_FILENAMES))}."
+                f"Arquivos esperados: {', '.join(sorted(ALLOWED_FILENAMES))} "
+                "ou um arquivo Python com nome iniciado por 'test_'."
             ),
         )
 

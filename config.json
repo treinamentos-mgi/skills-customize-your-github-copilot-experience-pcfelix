@@ -71,6 +71,24 @@
           "type": "python"
         }
       ]
+    },
+    {
+      "id": "testing-fastapi-endpoints",
+      "title": "Testing FastAPI Endpoints",
+      "description": "Write automated tests for FastAPI endpoints using pytest and TestClient, including validation and HTTP error responses.",
+      "path": "assignments/testing-fastapi-endpoints",
+      "attachments": [
+        {
+          "name": "API under test",
+          "file": "api.py",
+          "type": "python"
+        },
+        {
+          "name": "Test Starter Code",
+          "file": "test_api.py",
+          "type": "python"
+        }
+      ]
     }
   ]
 }

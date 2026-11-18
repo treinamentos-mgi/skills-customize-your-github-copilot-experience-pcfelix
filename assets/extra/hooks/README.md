@@ -20,8 +20,8 @@ Hooks são scripts que o GitHub Copilot executa **automaticamente** em momentos 
 O hook **`validate-assignment-structure`** intercepta toda tentativa do Copilot de **criar um arquivo** (`create_file`) e verifica se ele está seguindo a estrutura correta do projeto.
 
 **Regra validada:**
-> Qualquer arquivo criado dentro da pasta `assignments/` deve ser um dos seguintes:
-> `README.md`, `starter-code.py` ou `data.csv`.
+> Arquivos criados dentro de `assignments/` devem seguir os nomes aceitos pelo hook:
+> `README.md`, `starter-code.py`, `api.py`, `data.csv` ou arquivos Python iniciados por `test_` (por exemplo, `test_api.py`).
 
 **Exemplos de comportamento:**
 
@@ -29,6 +29,8 @@ O hook **`validate-assignment-structure`** intercepta toda tentativa do Copilot 
 |---|---|
 | `assignments/minha-tarefa/README.md` | ✅ Aprovado |
 | `assignments/minha-tarefa/starter-code.py` | ✅ Aprovado |
+| `assignments/minha-tarefa/api.py` | ✅ Aprovado |
+| `assignments/minha-tarefa/test_api.py` | ✅ Aprovado |
 | `assignments/minha-tarefa/solucao.py` | ❌ Bloqueado com mensagem explicativa |
 | `assets/css/styles.css` | ✅ Aprovado (fora de `assignments/`) |
 
